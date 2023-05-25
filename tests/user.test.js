@@ -16,10 +16,10 @@ test('User can be created / register', ()=>{
         fetch("http://localhost:8080/user", {
             method: "POST",
             body: JSON.stringify({
-                name: 'Avi',
-                email: 'avibarouch@gmail.com',
-                password: 'avi1962',
-                phone: '0545313606',
+                name: 'John',
+                email: 'jhon@gmail.com',
+                password: 'john',
+                phone: '0985704523',
                 jobTitle: 'Cheef'
             }),
             headers: {
