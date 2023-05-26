@@ -15,7 +15,7 @@ const { findUserByEmail } = require('./util');
 class UserService {
     async createUser(userDto) {
         const {name, email, password, phone, jobTitle} = userDto;
-        if ( name && email && password && findUserByEmail() ) {
+        if ( name && email && password && !findUserByEmail() ) {
             let id = await userDAO.createUser(name, email, password, phone, jobTitle);
             return id;
         }else {

@@ -1,13 +1,14 @@
+// Put business logic hear
 const fetch = require("node-fetch");
 //const userService = require('./user')
 
-exports.feedback = (name, email, password, phone, jobTitle) => {
-    return 'Name is ' + name 
-        + ', Email is ' + email 
-        + ', Password is ' + password
-        + ', Phone is ' + phone
-        + ', Job Title is ' + jobTitle;
-};
+//exports.feedback = (name, email, password, phone, jobTitle) => {
+//    return 'Name is ' + name 
+//        + ', Email is ' + email 
+//        + ', Password is ' + password
+//        + ', Phone is ' + phone
+//        + ', Job Title is ' + jobTitle;
+//};
 
 exports.register = async (name, email, password, phone, jobTitle) => {
     var jsonData = null ; 
@@ -33,5 +34,5 @@ exports.register = async (name, email, password, phone, jobTitle) => {
 }
 
 exports.findUserByEmail = () =>{
-    return false
+    return 1
 }
