@@ -1,3 +1,6 @@
+// Use a controller for treet the relevant endpoints.
+// Don't put your business logic inside the controller!
+
 const UserService = require('../services/user');
 
 class UserControler {

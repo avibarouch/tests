@@ -1,72 +1,29 @@
 const express = require('express');
-const fetch = require("node-fetch");
-const { before } = require('node:test');
 const app = express();
 
-//beforeAll(serverListen);
-
-//const {feedback} = require('../services/util');
+const {register} = require('../services/util');
 
 test('Server is listen to port 8080', ()=>{
-    expect('not listen').toBe('listen');
+    expect('ToDo: implement').toBe('listning');
 })
 
-test('User can be created / register', ()=>{
-    try{
-        fetch("http://localhost:8080/user", {
-            method: "POST",
-            body: JSON.stringify({
-                name: 'John',
-                email: 'jhon@gmail.com',
-                password: 'john',
-                phone: '0985704523',
-                jobTitle: 'Cheef'
-            }),
-            headers: {
-              "Content-type": "application/json; charset=UTF-8"
-            }
-        
-        });
-    } catch (err) {
-        expect(`Error ${err}`).toBe('User can be created');
-    }   
-
+test('Create a user with all fields: name, email, password, phone and job title', async ()=>{
+    let response = await register('David', 'david@gmail.com', 'shara123', '456123789', 'First Comander');
+    expect(response).toBeGreaterThan(0);
 });
 
-
-test('Register page is open in the browser', ()=>{
-    expect('not open').toBe('open');
+test('Create user without a name will fail', async ()=>{
+    let response = await register(NaN , 'bibi@gmail.com', 'bibi123', '987645321', 'CEO');
+    expect(response).toBe(-1);
 });
 
-test('A user record was insert',async(done)=>{
-//    app.post('/user', (req, res) =>{
-        const userParams = {
-            "name": "Avi",
-            "email": "avibarouch@gmail.com",
-            "password": "avi1962"
-        }
-
-        try {
-            app.post('localhost:8080/user', userParams)
-        } catch(err) {
-            expect(`Error ${err}`).toBe('created');
-        }
+test('Create user without an Email', async ()=>{
+    let response = await register('Hana' , '', 'hana123', '123456789', 'COS');
+    expect(response).toBe(-1);
 });
-
-test('All fields: name, email, password, phone and job title are editable on registration page', ()=>{
-    //, 'Avi1962', '0545313606', 'cheef'
-    expect(feedback('Avi', 'avibarouch@gmail.com', 'avi1962'))
-        .toBe('Name is Avi, Email is avibarouch@gmail.com, Password is avi1962');
-});
-
-test('Try to register without a name', ()=>{
-
-});
-test('Try to register without an Email', ()=>{
-
-});
-test('Try to register with Email that already exist in the database', ()=>{
-
+test('Create user with Email that already exist in the database will fail', async ()=>{
+    let response = await register('Dadi' , 'david@gmail.com', 'david2002', '123456789', 'First Comander');
+    expect(response).toBe(-1);
 });
 test('', ()=>{
 

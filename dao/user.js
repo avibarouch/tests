@@ -1,3 +1,4 @@
+// The Data Access Layer (DAL) is where the code integrates with an external source of truth like a database.
 const db = require('../db/db');
 
 class UserDAO {
@@ -10,7 +11,6 @@ class UserDAO {
          phone: phone,
          job_title: jobTitle
         })
-       .returning('id'); // is not supported by mysql and will not have any effect.
        return id;
     }
 }
