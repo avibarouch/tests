@@ -33,6 +33,6 @@ exports.register = async (name, email, password, phone, jobTitle) => {
     return jsonData
 }
 
-exports.findUserByEmail = () =>{
-    return 1
+exports.findUserByEmail = (email) =>{
+    return false;
 }

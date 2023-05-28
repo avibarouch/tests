@@ -3,15 +3,24 @@ const db = require('../db/db');
 
 class UserDAO {
     async createUser(name, email, password, phone, jobTitle){
-       const [id] = await db('users')
-        .insert({
-         name : name,
-         email: email,
-         password: password,
-         phone: phone,
-         job_title: jobTitle
-        })
-       return id;
+        const [id] = await db('users')
+            .insert({
+                name : name,
+                email: email,
+                password: password,
+                phone: phone,
+                job_title: jobTitle
+            })
+        return id;
+    }
+    async findUserByEmail(email){
+        const [user] = await db('users')
+            .where('email', email);
+        if (user) {
+            var id = user.id;
+            return id;
+        } else return null;
+        
     }
 }
 

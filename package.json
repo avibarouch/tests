@@ -28,5 +28,12 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/avibarouch/tests.git"
-  }
+  },
+  "tasks": [
+    {
+        "label": "echo",
+        "type": "shell",
+        "command": "echo ${workspaceFolder}"
+    }
+  ]
 }
