@@ -6,7 +6,6 @@
 module.exports = {
 
   development: {
-    client: 'postgresql',
     client: "mysql",
     connection: {
       database: "avitest",
