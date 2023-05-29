@@ -21,7 +21,8 @@
     "test": "jest",
     "dev": "nodemon index.ts",
     "migrate": "knex migrate:latest --knexfile db/knexfile.js",
-    "rollback": "knex migrate:rollback --knexfile db/knexfile.js"
+    "rollback": "knex migrate:rollback --knexfile db/knexfile.js",
+    "seeds": "knex seed:run --knexfile ./db/knexfile.js"
   },
   "author": "Avi Barouch",
   "license": "ISC",

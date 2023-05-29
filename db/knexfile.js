@@ -12,6 +12,9 @@ module.exports = {
       user: "root",
       password: "rootpassword"
     },
+    seeds: {
+      directory: __dirname + '/seeds',
+  },
     pool: {
       min: 2,
       max: 10

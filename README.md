@@ -16,6 +16,8 @@ $ docker-compose up
 $ npm run dev
 Check you see: "Server listen port 8080"
 Open another terminal and CD to tests folder then run:
+$ npx knex migrate:latest --knexfile db/knexfile.js
+$ npx knex seed:run --knexfile ./db/knexfile.js
 $ npx jest
 Check you see The test results
 # OS

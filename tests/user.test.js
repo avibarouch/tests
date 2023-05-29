@@ -43,7 +43,7 @@ test('Try To Create user with Email that already exist in the database will fail
 });
 
 test('Successfully login with exist email and match password', async ()=>{
-    let response = await login('jhondir@gmail.com', 'jhon');
+    let response = await login('david@gmail.com', 'david123');
     expect(response).toBe('Login successfully');
 }, timeOut = debugTimeOut);
 
