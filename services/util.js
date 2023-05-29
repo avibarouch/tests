@@ -1,6 +1,6 @@
 // Put business logic hear
 const fetch = require("node-fetch");
-//const userService = require('./user')
+const userDAO = require('../dao/user')
 
 //exports.feedback = (name, email, password, phone, jobTitle) => {
 //    return 'Name is ' + name 
@@ -28,11 +28,30 @@ exports.register = async (name, email, password, phone, jobTitle) => {
         });
         jsonData = await response.json();
     } catch (err) {
-        expect(`Error ${err}`).toBe('User can be created');
+        // Todo: something. Call a frontend function probebly
+        console.log(`Util register Error ${err}`);
     }
     return jsonData
 }
 
-exports.findUserByEmail = (email) =>{
-    return false;
+exports.login = async (email, password) =>{
+    try{
+        const isAproved = await userDAO.approve(email, password);
+    } catch(err) {
+        console.log(`Util aprove Error ${err}`);
+    } finally {
+        if (typeof isAproved === "undefined") {
+            // Todo: something. Call a frontend function probebly
+            console.log ('wrong email or password or both');
+            return 'wrong email or password';
+        } else if  (isAproved == null) {
+            // Todo: something. Call a frontend function probebly
+            console.log('wrong password');
+            return 'wrong password';
+        } else {
+            // Todo: something. Call a frontend function probebly
+            console.log ('Login successfully');
+            return 'Login successfully';
+        }
+    }
 }

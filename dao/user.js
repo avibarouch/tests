@@ -20,8 +20,28 @@ class UserDAO {
             var id = user.id;
             return id;
         } else return null;
-        
     }
+
+    async approve(email, password){
+        const id = await this.findUserByEmail(email);
+        if (id){
+            const [user] = await db('users')
+                .where('id', id);
+            if (user) {
+                if (user.password === password) {
+                    return  id;
+                } else {
+                    return null;
+                }
+            }
+        }
+    }
+
+    //async approve(email, password){
+    //    const [user] = await db('users').where({
+    //        'email': email,
+    //    })
+    //}
 }
 
 module.exports = new UserDAO();
