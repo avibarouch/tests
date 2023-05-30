@@ -29,12 +29,15 @@ class UserDAO {
                 .where('id', id);
             if (user) {
                 if (user.password === password) {
-                    return  id;
+                    return  'Login successfully';
                 } else {
-                    return null;
+                    return 'wrong password';
                 }
             }
-        }
+            return 'something happend'
+        } 
+        return 'Email not exist';
+
     }
 
     //async approve(email, password){

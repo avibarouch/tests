@@ -12,6 +12,12 @@ const getRandomInt = (max) => {
     return Math.floor(Math.random() * max);
 }
 
+const delay = 10000;
+
+//setTimeout(() => {
+//    console.log('Hold The proccess and wait for debugger attuchment');
+//  }, delay);
+
 test('Is Server listen to port 8080', ()=>{
     expect('listning').toBe('ToDo: implement');
 });
@@ -45,12 +51,14 @@ test('Try To Create user with Email that already exist in the database will fail
 test('Successfully login with exist email and match password', async ()=>{
     let response = await login('david@gmail.com', 'david123');
     expect(response).toBe('Login successfully');
-}, timeOut = debugTimeOut);
+});
 
-test('Try to login with wrong pair of email and password', async ()=>{
+test('Try to login with wrong password', async ()=>{
     let response = await login('saba@gmail.com', 'jhon');
-    expect(response).toBe('wrong email or password');
-}, timeOut = debugTimeOut);
+    expect(response).toBe('Email not exist');
+});
+
+
 
 
 //test('', ()=>{
