@@ -30,6 +30,7 @@ exports.register = async (name, email, password, phone, jobTitle) => {
     } catch (err) {
         // Todo: something. Call a frontend function probebly
         console.log(`Util register Error ${err}`);
+        return `Util register Error ${err}`
     }
     return jsonData
 }
