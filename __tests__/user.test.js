@@ -17,7 +17,6 @@ const delay = 10000;
 //setTimeout(() => {
 //    console.log('Hold The proccess and wait for debugger attuchment');
 //  }, delay);
-
 test('Is Server listen to port 8080', ()=>{
     expect('listning').toBe('ToDo: implement');
 });
@@ -47,30 +46,16 @@ test('Try To Create user with Email that already exist in the database will fail
     let response = await register('Dadi' , 'david@gmail.com', 'david2002', '123456789', 'First Comander');
     expect(response).toBe(-1);
 });
-
-test('Successfully login with exist email and match password', async ()=>{
-    let response = await login('david@gmail.com', 'david123');
-    expect(response).toBe('Login successfully');
+test('Successfully login with exist email and match password', ()=>{
+    let response = login('david@gmail.com', 'david123');
+    return expect(response).resolves.toBe('Login successfully');
+}, timeOut = debugTimeOut);
+test('Try to login with wrong password', ()=>{
+    let response = login('david@gmail.com', 'jhon');
+    return expect(response).resolves.toBe('Wrong password');
 });
 
-test('Try to login with wrong password', async ()=>{
-    let response = await login('saba@gmail.com', 'jhon');
-    expect(response).toBe('Email not exist');
+test('Try to login with wrong email', ()=>{
+    let response = login('davidtheKing@gmail.com', 'david123');
+    return expect(response).resolves.toBe('Email not exist');
 });
-
-
-
-
-//test('', ()=>{
-//
-//});
-//test('', ()=>{
-//
-//});
-//test('', ()=>{
-//
-//});
-//test('', ()=>{
-//
-//});
-//

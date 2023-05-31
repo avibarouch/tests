@@ -31,7 +31,7 @@ class UserDAO {
                 if (user.password === password) {
                     return  'Login successfully';
                 } else {
-                    return 'wrong password';
+                    return 'Wrong password';
                 }
             }
             return 'something happend'
