@@ -17,7 +17,6 @@ class UserDAO {
             console.log(`UserDAO.createUser Error: ${err}`)
             return -1
         } finally {
-            db.destroy;
         }
 
     }
@@ -31,11 +30,10 @@ class UserDAO {
                 return id;
             } else return null;
         } catch(err){
-            consol.log(`UserDAO.findUser Error: ${err}`)
+            console.log(`UserDAO.findUser Error: ${err}`)
             return null
         }
         finally {
-            db.destroy;
         }
     }
 
@@ -58,7 +56,6 @@ class UserDAO {
         } catch(err) {
             return `UserDAO.Approve Error ${err}`
         } finally {
-            db.destroy
         }
     }
 
