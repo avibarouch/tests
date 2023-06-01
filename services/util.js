@@ -2,14 +2,6 @@
 const fetch = require("node-fetch");
 const userDAO = require('../dao/user')
 
-//exports.feedback = (name, email, password, phone, jobTitle) => {
-//    return 'Name is ' + name 
-//        + ', Email is ' + email 
-//        + ', Password is ' + password
-//        + ', Phone is ' + phone
-//        + ', Job Title is ' + jobTitle;
-//};
-
 exports.register = async (name, email, password, phone, jobTitle) => {
     var jsonData = null ; 
     try{
