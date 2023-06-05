@@ -30,7 +30,7 @@ class UserDAO {
                 return id;
             } else return null;
         } catch(err){
-            console.log(`UserDAO.findUser Error: ${err}`)
+            console.log(`UserDAO.findUser ${err}`)
             return null
         }
         finally {
@@ -59,11 +59,6 @@ class UserDAO {
         }
     }
 
-    //async approve(email, password){
-    //    const [user] = await db('users').where({
-    //        'email': email,
-    //    })
-    //}
 }
 
 module.exports = new UserDAO();

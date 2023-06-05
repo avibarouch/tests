@@ -10,7 +10,6 @@
 // Service can make calls to the data access layer
 
 const userDAO = require('../dao/user');
-const { findUserByEmail } = require('./util');
 
 class UserService {
     async createUser(userDto) {
